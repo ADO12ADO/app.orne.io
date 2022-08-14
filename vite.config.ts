@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import React from '@vitejs/plugin-react';
-import rollupNodePolyFill from 'rollup-plugin-node-polyfills';
+import rollupNodePolyFill from 'rollup-plugin-polyfill-node';
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
 

@@ -1,4 +1,5 @@
 import { useChainOptions } from '@terra-money/wallet-provider';
+import { AppProviders } from '~/configuration/AppProviders';
 
 export function Application() {
 	const chainOptions = useChainOptions();
@@ -7,5 +8,5 @@ export function Application() {
 		return <span>Loading...</span>;
 	}
 
-	return <p>Hello World</p>;
+	return <AppProviders {...chainOptions}>Hello World</AppProviders>;
 }
