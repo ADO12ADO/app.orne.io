@@ -5,6 +5,7 @@ specifiers:
   '@esbuild-plugins/node-modules-polyfill': ^0.1.4
   '@terra-money/terra.js': ^3.1.5
   '@terra-money/wallet-provider': ^3.9.4
+  '@types/node': ^18.7.3
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@vitejs/plugin-react': ^2.0.1
@@ -24,6 +25,7 @@ dependencies:
 devDependencies:
   '@esbuild-plugins/node-globals-polyfill': 0.1.1
   '@esbuild-plugins/node-modules-polyfill': 0.1.4
+  '@types/node': 18.7.3
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
   '@vitejs/plugin-react': 2.0.1_vite@3.0.7
@@ -541,7 +543,6 @@ packages:
 
   /@types/node/18.7.3:
     resolution: {integrity: sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==}
-    dev: false
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}

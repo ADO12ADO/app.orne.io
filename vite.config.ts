@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import React from '@vitejs/plugin-react';
 import rollupNodePolyFill from 'rollup-plugin-node-polyfills';
@@ -24,6 +25,12 @@ export default defineConfig({
 				}),
 				NodeModulesPolyfillPlugin(),
 			],
+		},
+	},
+
+	resolve: {
+		alias: {
+			'~': resolve(__dirname, 'src'),
 		},
 	},
 
