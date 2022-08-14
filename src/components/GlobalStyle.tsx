@@ -18,7 +18,7 @@ export const globalStyles = globalCss({
 		backgroundColor: '$beige',
 		color: '$darkBlue',
 		height: '100%',
-		scrollbarGutter: 'stable both-edges',
+		scrollbarGutter: 'stable',
 	},
 
 	'body': {
