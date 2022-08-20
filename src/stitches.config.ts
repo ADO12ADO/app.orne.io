@@ -3,7 +3,7 @@ import type * as Stitches from '@stitches/react';
 export type CSS = Stitches.CSS<typeof config>;
 export type { VariantProps } from '@stitches/react';
 
-export const { styled, css, config, globalCss } = createStitches({
+export const { styled, css, config, keyframes, globalCss } = createStitches({
 	theme: {
 		colors: {
 			white: 'hsl(0, 0%, 100%)',
@@ -11,6 +11,8 @@ export const { styled, css, config, globalCss } = createStitches({
 			beige: 'hsl(26, 21%, 94%)',
 			mediumGrey: 'hsl(230, 21%, 65%)',
 			green: 'hsl(114, 31%, 63%)',
+			green25: 'hsla(114, 31%, 63%, 0.25)',
+			green50: 'hsla(114, 31%, 63%, 0.5)',
 			darkGreen: 'hsl(114, 52%, 20%)',
 			blue: 'hsl(216, 54%, 56%)',
 			darkBlue: 'hsl(230, 24%, 29%)',
@@ -53,6 +55,9 @@ export const { styled, css, config, globalCss } = createStitches({
 		},
 		sizes: {
 			maxContainer: '1200px',
+		},
+		shadows: {
+			base: '0 5px 5px -5px rgba(73, 114, 68, 0.1)',
 		},
 		utils: {
 			m: (value: string) => ({
