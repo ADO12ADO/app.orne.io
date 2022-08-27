@@ -1,36 +1,22 @@
-import { resolve } from 'node:path';
+import path from 'node:path';
 import { defineConfig } from 'vite';
 import React from '@vitejs/plugin-react';
-import rollupNodePolyFill from 'rollup-plugin-polyfill-node';
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	build: {
-		rollupOptions: {
-			plugins: [rollupNodePolyFill()],
-		},
-	},
-
 	optimizeDeps: {
 		esbuildOptions: {
 			define: {
 				global: 'globalThis',
 			},
-			plugins: [
-				NodeGlobalsPolyfillPlugin({
-					process: true,
-					buffer: true,
-				}),
-				NodeModulesPolyfillPlugin(),
-			],
 		},
 	},
 
 	resolve: {
 		alias: {
-			'~': resolve(__dirname, 'src'),
+			'~': path.resolve(__dirname, './src'),
+			'@terra-money/terra.js': '@terra-money/terra.js/dist/bundle.js',
+			'readable-stream': 'vite-compatible-readable-stream',
 		},
 	},
 

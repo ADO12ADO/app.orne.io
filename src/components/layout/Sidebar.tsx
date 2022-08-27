@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from '~/stitches.config';
 
 const SidebarWrapper = styled('aside', {
@@ -11,5 +12,16 @@ const SidebarWrapper = styled('aside', {
 });
 
 export function Sidebar() {
-	return <SidebarWrapper>Orne.io</SidebarWrapper>;
+	return (
+		<SidebarWrapper>
+			<ul>
+				<li>
+					<Link to={'/'}>Dashboard</Link>
+				</li>
+				<li>
+					<Link to={'/airdrop'}>Airdrop</Link>
+				</li>
+			</ul>
+		</SidebarWrapper>
+	);
 }
