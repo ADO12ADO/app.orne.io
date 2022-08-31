@@ -7,7 +7,7 @@ type ContractAddress = Record<Contracts, string>;
 
 const kTestnetContract: ContractAddress = {
 	token: 'terra1f4mp7uxaq2je5c0mrxe4akd984487lxv4nu2lsyw0gvpr6l63yqsngqu78',
-	airdrop: 'terra1h3qxlz5fzl8hht4z8sxc00hzs8mnd34djle5tl0hclwkkxpx8tasa8nh9m',
+	airdrop: 'terra1rzf2kyujre70v08wuj44s8u2vzjwnn3ev3q835tj89j0ay54q0kqqc6cz9',
 };
 
 const kMainnetContract: ContractAddress = {
@@ -19,7 +19,7 @@ export type OrneContextData = {
 	contract: ContractAddress;
 };
 
-export const OrneContext = createContext<OrneContextData>({} as OrneContextData);
+export const OrneContext = createContext<OrneContextData | null>(null);
 
 export function OrneProvider({ children }: { children: ReactNode }) {
 	const { network, status } = useWallet();

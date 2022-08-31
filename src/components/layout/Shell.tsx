@@ -6,8 +6,10 @@ import { MaxWidthWrapper } from '~/components/MaxWidthWrapper';
 import type { ReactNode } from 'react';
 
 const ShellWrapper = styled(Grid, {
-	'gridTemplateAreas': "'aside header' 'aside main'",
-	'gridTemplateColumns': '320px 1fr',
+	// 'gridTemplateAreas': "'aside header' 'aside main'",
+	'gridTemplateAreas': "'header header' 'main main'",
+	// 'gridTemplateColumns': '320px 1fr',
+	'gridTemplateColumns': '1fr',
 	'gridTemplateRows': 'max-content 1fr',
 	'height': '100vh',
 
@@ -21,8 +23,9 @@ const ShellWrapper = styled(Grid, {
 	},
 
 	'main': {
-		'gridColumnStart': 'aside',
-		'gridColumnEnd': 'main',
+		// 'gridColumnStart': 'aside',
+		// 'gridColumnEnd': 'main',
+		'gridArea': 'main',
 
 		'@media (min-width: 768px)': {
 			gridArea: 'main',
@@ -34,7 +37,7 @@ const ShellWrapper = styled(Grid, {
 export function Shell({ children }: { children: ReactNode }) {
 	return (
 		<ShellWrapper>
-			<Sidebar />
+			{/*<Sidebar />*/}
 
 			<MaxWidthWrapper css={{ paddingBlock: '$11' }}>
 				<Header />
