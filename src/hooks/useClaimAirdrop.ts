@@ -4,12 +4,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import airdropInfo, { getAirdropEntry } from '~/data/airdrop';
 import { queryKeys } from '~/hooks/queryKeys';
 import { useApp } from '~/hooks/useApp';
+import { usePendingTransaction } from '~/hooks/usePendingTransaction';
 import { MerkleTree } from '~/utils/merkle';
 
 export function useClaimAirdrop() {
 	const app = useApp();
 	const queryClient = useQueryClient();
 	const connectedWallet = useConnectedWallet();
+	const { pushTransaction } = usePendingTransaction();
 
 	return useMutation(
 		async () => {
@@ -29,9 +31,13 @@ export function useClaimAirdrop() {
 				},
 			});
 
-			await connectedWallet!.post({
+			const tx = await connectedWallet!.post({
 				msgs: [msg],
 			});
+
+			pushTransaction({ tx, customToastMessage: 'Airdrop claimed!' });
+
+			return;
 		},
 		{
 			onSuccess() {
