@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useMemo } from 'react';
+import { Triangle } from 'react-loader-spinner';
 import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
 
 type Contracts = 'token' | 'airdrop';
@@ -30,7 +31,21 @@ export function OrneProvider({ children }: { children: ReactNode }) {
 	);
 
 	if (status === WalletStatus.INITIALIZING) {
-		return <p>Loading...</p>;
+		return (
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+					height: '100vh',
+					gap: '8px',
+				}}
+			>
+				<Triangle ariaLabel="Loading the dApp" color="hsl(203,23%,42%)" />
+				<h1>Orne.io</h1>
+			</div>
+		);
 	}
 
 	return <OrneContext.Provider value={{ contract }}>{children}</OrneContext.Provider>;

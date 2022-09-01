@@ -1,3 +1,4 @@
+import { ThreeDots } from 'react-loader-spinner';
 import { readAmount } from '@terra.kitchen/utils';
 import { useConnectedWallet } from '@terra-money/wallet-provider';
 import { styled } from '~/stitches.config';
@@ -27,7 +28,13 @@ export function Airdrop() {
 	}
 
 	if (isLoading) {
-		return <Card>Loading...</Card>;
+		return (
+			<Card>
+				<Flex align={'center'} justify={'center'}>
+					<ThreeDots color="hsl(203,23%,42%)" height="10" />
+				</Flex>
+			</Card>
+		);
 	}
 
 	if (airdropUserInfo!.has_claimed) {

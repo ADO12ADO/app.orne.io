@@ -1,3 +1,4 @@
+import { Triangle } from 'react-loader-spinner';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useChainOptions } from '@terra-money/wallet-provider';
 import { AppProviders } from '~/configuration/AppProviders';
@@ -8,7 +9,21 @@ export function Application() {
 	const chainOptions = useChainOptions();
 
 	if (!chainOptions) {
-		return <span>Loading...</span>;
+		return (
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+					height: '100vh',
+					gap: '8px',
+				}}
+			>
+				<Triangle ariaLabel="Loading the dApp" color="hsl(203,23%,42%)" />
+				<h1>Orne.io</h1>
+			</div>
+		);
 	}
 
 	return (
