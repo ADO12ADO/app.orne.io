@@ -35,7 +35,13 @@ export function useClaimAirdrop() {
 				msgs: [msg],
 			});
 
-			pushTransaction({ tx, customToastMessage: 'Airdrop claimed!' });
+			pushTransaction({
+				tx,
+				customToastMessage: 'Airdrop claimed!',
+				callback() {
+					void queryClient.invalidateQueries(queryKeys.airdropInfo(connectedWallet?.walletAddress));
+				},
+			});
 
 			return;
 		},
