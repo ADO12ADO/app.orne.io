@@ -4,14 +4,6 @@ import React from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	optimizeDeps: {
-		esbuildOptions: {
-			define: {
-				global: 'globalThis',
-			},
-		},
-	},
-
 	resolve: {
 		alias: {
 			'~': path.resolve(__dirname, './src'),
