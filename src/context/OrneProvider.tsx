@@ -11,8 +11,8 @@ const kTestnetContract: ContractAddress = {
 };
 
 const kMainnetContract: ContractAddress = {
-	token: '',
-	airdrop: '',
+	token: 'terra19p20mfnvwh9yvyr7aus3a6z6g6uk28fv4jhx9kmnc2m7krg27q2qkfenjw',
+	airdrop: 'terra1kgktsdm3j3hw6ces3fxjs58rft5c7cq9dpsrdg2lrqfdgsrs5cjshku3vz',
 };
 
 export type OrneContextData = {

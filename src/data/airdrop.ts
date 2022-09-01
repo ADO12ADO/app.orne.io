@@ -5,7 +5,7 @@ export function getAirdropEntry(walletAddress?: string) {
 const airdropInfo = [
 	{
 		address: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
-		amount: '47497797140083',
+		amount: '47497797140318',
 	},
 	{
 		address: 'terra1fmlqg5m38juf9nfe5amuwjlqv8h84xqhsajk3s',
