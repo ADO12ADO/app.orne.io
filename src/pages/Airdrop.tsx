@@ -41,7 +41,7 @@ export function Airdrop() {
 					<Text>You have an airdrop of</Text>
 
 					<Text size={2} weight={'bold'}>
-						{readAmount(airdropEntry.amount)} $ORNE
+						{readAmount(airdropEntry.amount, { decimals: 0, comma: true })} $ORNE
 					</Text>
 
 					<Flex align={'center'} justify={'between'} gap={4}>
