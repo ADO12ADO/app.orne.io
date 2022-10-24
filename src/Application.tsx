@@ -1,9 +1,15 @@
 import { Triangle } from 'react-loader-spinner';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useChainOptions } from '@terra-money/wallet-provider';
 import { AppProviders } from '~/configuration/AppProviders';
 import { Shell } from '~/components/layout/Shell';
-import { Airdrop } from '~/pages/Airdrop';
+import { Dashboard } from './pages/Dashboard';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans/700.css';
+import './assets/app.css';
+import { Swap } from './pages/Swap';
+import { Earn } from './pages/Earn';
 
 export function Application() {
 	const chainOptions = useChainOptions();
@@ -30,8 +36,9 @@ export function Application() {
 		<AppProviders {...chainOptions}>
 			<Shell>
 				<Routes>
-					<Route path={'/airdrop'} element={<Airdrop />} />
-					<Route path="*" element={<Navigate to="/airdrop" replace />} />
+					<Route path={'/'} element={<Dashboard />} />
+					<Route path={'/swap'} element={<Swap />} />
+					<Route path={'/earn'} element={<Earn />} />
 				</Routes>
 			</Shell>
 		</AppProviders>

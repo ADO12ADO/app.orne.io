@@ -1,7 +1,6 @@
 import { toast } from 'react-hot-toast';
 import { createContext, useEffect, useState } from 'react';
 import { useConnectedWallet, useLCDClient } from '@terra-money/wallet-provider';
-import { Text } from '~/components/ui';
 import { sleep } from '~/utils/sleep';
 import type { ReactNode } from 'react';
 import type { TxResult } from '@terra-money/wallet-provider';
@@ -33,7 +32,7 @@ export function TxResolverProvider({ children }: { children: ReactNode }) {
 					callback();
 				}
 
-				toast((t) => <Text css={{ fontSize: '16px' }}>{customToastMessage}</Text>);
+				toast((t) => <span>{customToastMessage}</span>);
 			});
 		}
 	}, [pendingTransactions]);

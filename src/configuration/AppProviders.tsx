@@ -3,7 +3,6 @@ import { WalletProvider } from '@terra-money/wallet-provider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { OrneProvider } from '~/context/OrneProvider';
 import { TxResolverProvider } from '~/context/TxResolverProvider';
-import { globalStyles } from '~/components/GlobalStyle';
 import type { ReactNode } from 'react';
 import type { WalletControllerChainOptions } from '@terra-money/wallet-provider';
 
@@ -14,8 +13,6 @@ type AppProvidersProps = {
 } & WalletControllerChainOptions;
 
 export function AppProviders({ children, defaultNetwork, walletConnectChainIds }: AppProvidersProps) {
-	globalStyles();
-
 	return (
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
