@@ -4,8 +4,8 @@ import Tooltip from '~/components/ui/Tooltip';
 
 export function Dashboard() {
 	return (
-		<div className="-mt-6">
-			<div className="mb-20">
+		<div className="mt-5 lg:-mt-6">
+			<div className="text-center lg:mb-20 lg:text-left">
 				<h1 className="mb-5 text-5xl font-bold">
 					Your <span className="dashboard-underline">dashboard</span>
 				</h1>
@@ -14,7 +14,7 @@ export function Dashboard() {
 				</h2>
 			</div>
 
-			<div className="mb-20 flex gap-10">
+			<div className="mb-20 flex flex-col gap-10 xl:flex-row">
 				<div className="mt-9">
 					<div className="flex items-center gap-2">
 						<IconToken name="orne" size={60} />
@@ -25,7 +25,7 @@ export function Dashboard() {
 					</div>
 				</div>
 				<div className="flex flex-1 flex-col gap-8">
-					<div className="flex flex-1 gap-8">
+					<div className="flex flex-1 flex-col gap-8 xl:flex-row">
 						<div className="flex h-32 flex-1 flex-col justify-center gap-2 rounded-lg bg-offWhite p-7 shadow-sm">
 							<div className="flex items-center gap-2">
 								<span className="text-darkBlue50">Token price</span>
@@ -67,7 +67,7 @@ export function Dashboard() {
 						</div>
 					</div>
 
-					<div className="flex flex-1 gap-8">
+					<div className="flex flex-1 flex-col gap-8 xl:flex-row">
 						<div className="flex h-44 flex-1 flex-col justify-start gap-2 rounded-lg bg-offWhite p-7 shadow-sm">
 							<span className="text-darkBlue50">Total Liquidity</span>
 							<div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export function Dashboard() {
 
 			<h2 className="mb-5 text-2xl font-semibold">Your wallet</h2>
 
-			<div className="mb-10 flex gap-8">
+			<div className="mb-10 flex flex-col gap-8 xl:flex-row">
 				<div className="flex-1">
 					<div className="flex h-32 flex-1 flex-col justify-center rounded-lg bg-offWhite p-8 shadow-sm">
 						<div className="flex w-full justify-between">

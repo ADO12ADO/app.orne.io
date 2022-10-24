@@ -7,7 +7,7 @@ export function Shell({ children }: { children: ReactNode }) {
 	return (
 		<div className="flex">
 			<Sidebar />
-			<div className="pl-90 flex-1 py-8 pl-[360px] pr-10">
+			<div className="lg:pl-90 flex-1 px-10 py-8 pr-10 lg:pl-[360px]">
 				<Header />
 				{children}
 			</div>

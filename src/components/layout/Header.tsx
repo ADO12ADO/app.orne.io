@@ -51,11 +51,11 @@ export function Header() {
 	}
 
 	return (
-		<header className="flex w-full items-center justify-end gap-5">
+		<header className="fixed bottom-0 left-0 flex w-full items-center justify-center gap-5 bg-offWhite p-2 lg:static lg:justify-end lg:bg-transparent">
 			<div className="flex items-center gap-1 text-sm text-mediumGrey">
 				<span>112,435.344</span>
 				{/* <ThreeDots width={35} color="hsl(230, 21%, 65%)" /> */}
-				<span className="rounded-full border border-mediumGrey px-2 py-0.5 leading-none">UST</span>
+				<span className="hidden rounded-full border border-mediumGrey px-2 py-0.5 leading-none sm:inline">UST</span>
 			</div>
 			<div className="relative flex items-center gap-2">
 				<Icon name="wallet" className="w-7" />

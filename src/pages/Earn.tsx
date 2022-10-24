@@ -5,8 +5,8 @@ import { Button } from '~/components/ui/Button';
 
 export function Earn() {
 	return (
-		<div className="-mt-6">
-			<div className="mb-20">
+		<div className="mt-5 lg:-mt-6">
+			<div className="mb-10 text-center lg:mb-20 lg:text-left">
 				<h1 className="mb-5 text-5xl font-bold">
 					<span className="earn-underline">Earn</span> tokens
 				</h1>
@@ -15,7 +15,7 @@ export function Earn() {
 				</h2>
 			</div>
 
-			<div className="flex flex-1 items-center justify-between gap-10 rounded-lg bg-offWhite p-8 shadow-sm">
+			<div className="flex flex-1 flex-col justify-between gap-10 rounded-lg bg-offWhite p-8 pb-14 shadow-sm lg:flex-row lg:items-center lg:pb-8">
 				<div className="flex flex-col">
 					<span className="mb-2 text-lg font-semibold">ORNE / LUNA</span>
 					<div className="flex gap-2">
@@ -56,15 +56,15 @@ export function Earn() {
 			</div>
 
 			<div className="mb-20 flex w-full justify-end gap-3 p-5">
-				<Button className="w-1/5">Provide</Button>
-				<Button variant="outline" className="w-1/5">
+				<Button className="w-full lg:w-1/5">Provide</Button>
+				<Button variant="outline" className="w-full lg:w-1/5">
 					Withdraw
 				</Button>
 			</div>
 
 			{/* PROVIDE */}
 
-			{/* <div className="mb-5 flex items-center gap-2">
+			<div className="mb-5 flex items-center gap-2">
 				<h2 className="text-3xl font-semibold">
 					Stake <span className="text-green">ORNE</span> and UST
 				</h2>
@@ -73,7 +73,7 @@ export function Earn() {
 				</button>
 			</div>
 
-			<div className="mb-10 flex gap-8">
+			<div className="mb-10 flex flex-col gap-8 lg:flex-row">
 				<div className="flex-1">
 					<div className="flex h-32 flex-1 flex-col justify-center rounded-lg bg-offWhite p-8 shadow-sm">
 						<div className="flex w-full justify-between">
@@ -89,7 +89,7 @@ export function Earn() {
 						</div>
 					</div>
 				</div>
-				<div className="flex h-32 items-center">
+				<div className="flex items-center justify-center lg:h-32">
 					<button className="block h-[60px] w-[60px] rounded-full shadow-lg">
 						<img src={plusCurrency} alt="Swap currency" />
 					</button>
@@ -109,11 +109,11 @@ export function Earn() {
 						</div>
 					</div>
 				</div>
-			</div> */}
+			</div>
 
 			{/* WITHDRAW */}
 
-			<div className="mb-5 flex items-center gap-2">
+			{/* <div className="mb-5 flex items-center gap-2">
 				<h2 className="text-3xl font-semibold">
 					Stake <span className="text-green">ORNE</span> and UST
 				</h2>
@@ -127,7 +127,7 @@ export function Earn() {
 					<div className="flex h-32 flex-1 flex-col justify-center rounded-lg bg-offWhite p-8 shadow-sm">
 						<div className="flex w-full justify-between">
 							<span className="mb-3 text-darkBlue50">Balance</span>
-							<div className="flex items-center gap-2">
+							<div className="-mt-2 flex items-center gap-2">
 								<span className="text-darkBlue50">0.048429</span>
 								<button className="flex h-7 items-center justify-center rounded-lg border border-green bg-green25 px-3 font-semibold transition-colors hover:bg-green hover:text-white">
 									Max
@@ -163,9 +163,9 @@ export function Earn() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
-			<Button>Stake tokens</Button>
+			<Button className="mb-14">Stake tokens</Button>
 		</div>
 	);
 }
