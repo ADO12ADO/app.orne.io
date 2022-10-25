@@ -2,14 +2,13 @@ import { truncate } from '@terra.kitchen/utils';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useConnectedWallet, useWallet } from '@terra-money/wallet-provider';
 import { styled, keyframes } from '~/stitches.config';
-import { Text } from '~/components/ui';
 
 const slideUpAndFade = keyframes({
 	'0%': { opacity: 0, transform: 'translateY(2px)' },
 	'100%': { opacity: 1, transform: 'translateY(0)' },
 });
 
-const WalletAddress = styled(Text, {
+const WalletAddress = styled('span', {
 	color: '$darkBlue',
 });
 
