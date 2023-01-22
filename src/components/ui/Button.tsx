@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { forwardRef } from 'react';
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 type ButtonProps = {
 	children: ReactNode;
@@ -9,7 +10,10 @@ type ButtonProps = {
 	size?: 'sm' | 'lg';
 };
 
-export function Button({ children, variant = 'fill', className, onClick, size = 'lg' }: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+	{ children, variant = 'fill', className, onClick, size = 'lg' },
+	ref
+) {
 	const classes = clsx(
 		'inline-flex items-center justify-center font-semibold px-4 py-2 border border-transparent rounded-full transition-colors',
 		{
@@ -23,5 +27,9 @@ export function Button({ children, variant = 'fill', className, onClick, size = 
 		className
 	);
 
-	return <button className={classes}>{children}</button>;
-}
+	return (
+		<button className={classes} ref={ref} type="button" onClick={onClick}>
+			{children}
+		</button>
+	);
+});

@@ -1,19 +1,23 @@
-import type { ReactNode } from 'react';
+import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
 import { createContext, useMemo } from 'react';
 import { Triangle } from 'react-loader-spinner';
-import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
+import type { ReactNode } from 'react';
 
-type Contracts = 'token' | 'airdrop';
+type Contracts = 'token' | 'orneLunaPair' | 'lunaUsdcPair' | 'lp';
 type ContractAddress = Record<Contracts, string>;
 
 const kTestnetContract: ContractAddress = {
-	token: 'terra1f4mp7uxaq2je5c0mrxe4akd984487lxv4nu2lsyw0gvpr6l63yqsngqu78',
-	airdrop: 'terra1rzf2kyujre70v08wuj44s8u2vzjwnn3ev3q835tj89j0ay54q0kqqc6cz9',
+	token: 'terra17lpau4t55q48g0utuh4cf0mderjkvddv0pdu3lazm6znnp95fq4susnck5',
+	orneLunaPair: 'terra1tlscdjfm2rgjf5e8z4rfkspcnu5z4l4g6fh4x5lhmvf62gtxcqjqm5e8f6',
+	lunaUsdcPair: 'terra16u6xa76krku3ykxck44x39s62za7qhsh8gr7sk9jwgt8nndwwjnq7c2zr4',
+	lp: 'terra1wn5s82w49mnljhs252xtxc3zprxjtz6u0v95pdcjgfac2c87k0gs8semsz',
 };
 
 const kMainnetContract: ContractAddress = {
 	token: 'terra19p20mfnvwh9yvyr7aus3a6z6g6uk28fv4jhx9kmnc2m7krg27q2qkfenjw',
-	airdrop: 'terra1kgktsdm3j3hw6ces3fxjs58rft5c7cq9dpsrdg2lrqfdgsrs5cjshku3vz',
+	orneLunaPair: 'terra1h4cakgms4ju3eryhrmw00xegtjxkgyv88yqllg9ryz9qxek4qz9sz3swn2',
+	lunaUsdcPair: 'terra1fd68ah02gr2y8ze7tm9te7m70zlmc7vjyyhs6xlhsdmqqcjud4dql4wpxr',
+	lp: 'terra10ht5t5vzpt6lfh8r6lau6mtsha3rqeznhkw5whc65scgrtkqradq0zy9pa',
 };
 
 export type OrneContextData = {

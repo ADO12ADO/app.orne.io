@@ -22,7 +22,7 @@ export function Sidebar() {
 			</button>
 			<div
 				ref={sidebar}
-				className="fixed left-0 top-0 z-20 flex h-screen w-full -translate-x-full flex-col items-center justify-between bg-white p-10 transition-transform duration-500 ease-in-out lg:w-80 lg:-translate-x-0"
+				className="fixed left-0 top-0 z-20 flex h-screen w-full -translate-x-full flex-col items-center justify-between bg-white p-10 transition-transform duration-500 ease-in-out lg:w-80 lg:-translate-x-0 lg:items-start"
 			>
 				<button
 					onClick={toggleSidebar}
@@ -34,7 +34,7 @@ export function Sidebar() {
 					<Link onClick={toggleSidebar} to={'/'} className="mb-10 block">
 						<img src={logo} alt="Orne.io" width={148} height={50} />
 					</Link>
-					<ul className="flex flex-col items-center gap-6">
+					<ul className="flex flex-col items-center gap-6 md:items-start">
 						<li onClick={toggleSidebar}>
 							<Link
 								to={'/'}

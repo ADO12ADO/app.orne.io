@@ -15,7 +15,7 @@ const MotionContent = motion(PopoverPrimitive.Content);
 export function Popover({ children, trigger, closable, title }: PopoverProps) {
 	return (
 		<PopoverPrimitive.Root>
-			<PopoverPrimitive.Trigger>{trigger}</PopoverPrimitive.Trigger>
+			<PopoverPrimitive.Trigger asChild>{trigger}</PopoverPrimitive.Trigger>
 			<AnimatePresence>
 				<PopoverPrimitive.Portal>
 					<MotionContent

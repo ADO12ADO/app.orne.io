@@ -1,15 +1,15 @@
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans/700.css';
+import './assets/app.css';
 import { Triangle } from 'react-loader-spinner';
 import { Route, Routes } from 'react-router-dom';
 import { useChainOptions } from '@terra-money/wallet-provider';
 import { AppProviders } from '~/configuration/AppProviders';
 import { Shell } from '~/components/layout/Shell';
-import { Dashboard } from './pages/Dashboard';
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/600.css';
-import '@fontsource/ibm-plex-sans/700.css';
-import './assets/app.css';
-import { Swap } from './pages/Swap';
-import { Earn } from './pages/Earn';
+import { Dashboard } from '~/pages/Dashboard';
+import { Swap } from '~/pages/Swap';
+import { Earn } from '~/pages/Earn';
 
 export function Application() {
 	const chainOptions = useChainOptions();
