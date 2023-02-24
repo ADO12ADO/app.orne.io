@@ -1,5 +1,5 @@
-import { forwardRef } from 'react';
 import clsx from 'clsx';
+import { forwardRef } from 'react';
 import type { ReactNode } from 'react';
 
 type ButtonProps = {
@@ -8,10 +8,11 @@ type ButtonProps = {
 	className?: string;
 	variant?: 'fill' | 'outline';
 	size?: 'sm' | 'lg';
+	type?: 'button' | 'submit' | 'reset';
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-	{ children, variant = 'fill', className, onClick, size = 'lg' },
+	{ children, variant = 'fill', className, onClick, size = 'lg', type = 'button' },
 	ref
 ) {
 	const classes = clsx(
@@ -28,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 	);
 
 	return (
-		<button className={classes} ref={ref} type="button" onClick={onClick}>
+		<button className={classes} ref={ref} type={type} onClick={onClick}>
 			{children}
 		</button>
 	);

@@ -4,7 +4,7 @@ import { Triangle } from 'react-loader-spinner';
 import type { ReactNode } from 'react';
 
 type Contracts = 'token' | 'orneLunaPair' | 'lunaUsdcPair' | 'lp' | 'company';
-type ContractAddress = Record<Contracts, string>;
+export type ContractAddress = Record<Contracts, string>;
 
 const kTestnetContract: ContractAddress = {
 	token: 'terra17lpau4t55q48g0utuh4cf0mderjkvddv0pdu3lazm6znnp95fq4susnck5',
