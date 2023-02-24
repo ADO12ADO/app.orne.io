@@ -1,63 +1,8 @@
-import { Dec, type Fee } from '@terra-money/feather.js';
-import { useEffect, useState } from 'react';
-import { ThreeDots } from 'react-loader-spinner';
-import { useDebounce } from 'use-debounce';
-import swapCurrency from '~/assets/swap-currency.svg';
-import { AmountInput } from '~/components/form/AmountInput';
-import { SlippageSelector } from '~/components/form/SlippageSelector';
-import { Button } from '~/components/ui/Button';
-import { IconToken } from '~/components/ui/IconToken';
-import { useEstimateFee } from '~/hooks/useEstimateFee';
-import { SwapParams, useSwap } from '~/hooks/useSwap';
-import { useSwapSimulation } from '~/hooks/useSwapSimulation';
-import { Token } from '~/utils/constants';
-import { readAmount } from '~/utils/readAmount';
+import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
+import { SwapForm } from '~/components/swap/SwapForm';
 
 export function Swap() {
-	const [amount, setAmount] = useState('');
-	const [debouncedAmount] = useDebounce(amount, 300);
-	const [slippage, setSlippage] = useState(0.5);
-	const [debouncedSlippage] = useDebounce(slippage, 300);
-	const [simulated, setSimulated] = useState('0');
-	const [fee, setFee] = useState<Fee>();
-	const [[from, to], setDirection] = useState([Token.Luna, Token.Orne]);
-	const { mutate: swapToken } = useSwap();
-	const { mutateAsync: simulateSwap, isLoading: isSimulating } = useSwapSimulation();
-	const { mutateAsync: estimateFee, isLoading: isEstimating, isError, error } = useEstimateFee();
-
-	function changeDirection() {
-		setDirection([to, from]);
-	}
-
-	useEffect(() => {
-		if (!debouncedAmount) return;
-
-		simulateSwap({ amount: debouncedAmount, token: from }).then((simulation) => {
-			setSimulated(simulation.return_amount);
-		});
-
-		estimateFee({ amount: debouncedAmount, token: from, slippage: debouncedSlippage }).then((fee) => {
-			setFee(fee);
-		});
-	}, [debouncedAmount, from, to, debouncedSlippage]);
-
-	const pricePerToken =
-		amount && simulated !== '0' ? new Dec(amount).times(1_000_000).dividedBy(simulated).toFixed(6) : 0;
-
-	const feePrice = readAmount(fee?.amount?.get('uluna')?.amount) || '0';
-
-	function sendSwapTransaction() {
-		const transactionParams = {
-			beliefPrice: pricePerToken.toString(),
-			slippage: debouncedSlippage.toString(),
-		} satisfies Omit<SwapParams, 'amountLuna' | 'amountOrne'>;
-
-		if (from === Token.Luna) {
-			swapToken({ ...transactionParams, amountLuna: debouncedAmount });
-		} else {
-			swapToken({ ...transactionParams, amountOrne: debouncedAmount });
-		}
-	}
+	const { status } = useWallet();
 
 	return (
 		<div className="mt-5 lg:-mt-6">
@@ -72,76 +17,8 @@ export function Swap() {
 			</div>
 
 			<div className="flex flex-col gap-8 lg:flex-row">
-				{/* From Input */}
-				<div className="flex-1">
-					<div className="bg-offWhite flex h-32 flex-1 flex-col justify-center rounded-lg p-8 shadow-sm">
-						<span className="text-darkBlue50 mb-3">Balance</span>
-						<div className="flex justify-between">
-							<AmountInput
-								className="bg-offWhite text-2xl font-semibold"
-								placeholder="0"
-								value={amount}
-								onChange={setAmount}
-							/>
-							<div className="flex items-center gap-2">
-								<IconToken name={from} size={36} />
-								<span className="text-mediumGrey">{from}</span>
-							</div>
-						</div>
-					</div>
-
-					<div className="p-5">
-						<dl className="space-y-2">
-							<div className="flex items-center justify-between">
-								<dt className="font-semibold">Price per ${to}</dt>
-								<dd className="text-mediumGrey inline-flex items-center">
-									{isSimulating ? <ThreeDots color="hsl(203,23%,42%)" height="10" /> : pricePerToken} {from}
-								</dd>
-							</div>
-							<div className="flex items-center justify-between">
-								<dt className="font-semibold">Tx Fee</dt>
-								<dd className="text-mediumGrey inline-flex items-center">
-									{isEstimating ? <ThreeDots color="hsl(203,23%,42%)" height="10" /> : feePrice} Luna
-								</dd>
-							</div>
-						</dl>
-					</div>
-				</div>
-
-				{/* Change Direction */}
-				<div className="-mt-10 flex items-center justify-center lg:mt-0 lg:h-32">
-					<button className="block h-[60px] w-[60px] rounded-full shadow-lg" onClick={changeDirection}>
-						<img src={swapCurrency} alt="Swap currency" />
-					</button>
-				</div>
-
-				{/* To Input */}
-				<div className="flex-1">
-					<div className="bg-offWhite flex h-32 flex-1 flex-col justify-center rounded-lg p-8 shadow-sm">
-						<span className="text-darkBlue50 mb-3">Estimated</span>
-						<div className="flex justify-between">
-							<span className="inline-flex items-center text-2xl font-semibold">
-								{isSimulating ? <ThreeDots color="hsl(203,23%,42%)" height="10" /> : readAmount(simulated)}
-							</span>
-							<div className="flex items-center gap-2">
-								<IconToken name={to} size={36} />
-								<span className="text-mediumGrey">{to}</span>
-							</div>
-						</div>
-					</div>
-
-					<div className="p-5">
-						<SlippageSelector slippage={slippage} onSlippageChange={setSlippage} />
-
-						<Button onClick={sendSwapTransaction}>Swap</Button>
-
-						{isError && (
-							<span className="text-red mt-2">
-								{error?.response?.data.code === 2 ? 'Please, increase your slippage' : 'Unknown error'}
-							</span>
-						)}
-					</div>
-				</div>
+				{status === WalletStatus.WALLET_NOT_CONNECTED && <p>Connect your wallet to start swapping.</p>}
+				{status === WalletStatus.WALLET_CONNECTED && <SwapForm />}
 			</div>
 		</div>
 	);

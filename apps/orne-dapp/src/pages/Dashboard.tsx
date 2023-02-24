@@ -1,32 +1,17 @@
-import { Dec } from '@terra-money/feather.js';
-import { useMemo } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { Icon } from '~/components/ui/Icon';
 import { IconToken } from '~/components/ui/IconToken';
 import Tooltip from '~/components/ui/Tooltip';
-import { useLunaPoolInfo } from '~/hooks/useLunaPoolInfo';
 import { useOrnePoolInfo } from '~/hooks/useOrnePoolInfo';
+import { useOrneTokenData } from '~/hooks/useOrneTokenData';
 import { Token } from '~/utils/constants';
 import { readAmount } from '~/utils/readAmount';
+import { readPercent } from '~/utils/readPercent';
 
 export function Dashboard() {
 	const ornePoolInfo = useOrnePoolInfo();
-	const lunaPoolInfo = useLunaPoolInfo();
 
-	const totalLiquidity = useMemo(() => {
-		if (ornePoolInfo.isLoading || lunaPoolInfo.isLoading) {
-			return null;
-		}
-
-		const lunaPriceInUSD = lunaPoolInfo.data!.luna_price;
-		const ornePriceInUSD = new Dec(ornePoolInfo.data!.orne_price).times(lunaPriceInUSD);
-		const orneQuantity = new Dec(ornePoolInfo.data!.orne);
-		const lunaQuantity = new Dec(ornePoolInfo.data!.luna);
-		const lunaTotalPriceInUSD = new Dec(lunaQuantity).times(lunaPriceInUSD);
-		const orneTotalPriceInUSD = new Dec(orneQuantity).times(ornePriceInUSD);
-
-		return lunaTotalPriceInUSD.add(orneTotalPriceInUSD).times(1_000_000).toString();
-	}, [ornePoolInfo.data, lunaPoolInfo.data]);
+	const { APR, ornePriceInUSD, totalLiquidity, fullyDilutedValue, marketCap } = useOrneTokenData();
 
 	return (
 		<div className="mt-5 lg:-mt-6">
@@ -35,7 +20,7 @@ export function Dashboard() {
 					Your <span className="dashboard-underline">dashboard</span>
 				</h1>
 				<h2 className="text-2xl">
-					Instantly trade <span className="text-green">$ORNE</span> and Luna
+					All information about <span className="text-green">$ORNE</span>
 				</h2>
 			</div>
 
@@ -45,7 +30,6 @@ export function Dashboard() {
 						<IconToken name={Token.Orne} size={60} />
 						<div className="flex flex-col">
 							<span className="font-semibold">ORNE</span>
-							<span>Luna</span>
 						</div>
 					</div>
 				</div>
@@ -63,7 +47,7 @@ export function Dashboard() {
 										</div>
 									}
 								>
-									Lorem ipsum
+									The value is computed directly from the pool reserves.
 								</Tooltip>
 							</div>
 							<div className="flex items-center gap-2">
@@ -73,7 +57,8 @@ export function Dashboard() {
 									</div>
 								) : (
 									<div className="text-2xl font-semibold">
-										{ornePoolInfo.data!.orne_price} <span className="font-normal">Luna</span>
+										{ornePoolInfo.data!.orne_price} <span className="font-normal">Luna</span>{' '}
+										<small className="text-sm">($ {ornePriceInUSD?.toFixed(3)})</small>
 									</div>
 								)}
 
@@ -89,7 +74,7 @@ export function Dashboard() {
 							<span className="text-darkBlue50">Market Cap</span>
 							<div className="flex items-center gap-2">
 								<span className="text-2xl font-semibold">
-									2,668,606.16 <span className="font-normal">UST</span>
+									{readAmount(marketCap?.toFixed(2), { micro: false })} <span className="font-normal">$</span>
 								</span>
 							</div>
 						</div>
@@ -99,7 +84,7 @@ export function Dashboard() {
 							<span className="text-darkBlue50">Fully Diluted Valuation</span>
 							<div className="flex items-center gap-2">
 								<span className="text-2xl font-semibold">
-									4,929,707.89 <span className="font-normal">UST</span>
+									{readAmount(fullyDilutedValue?.toFixed(2), { micro: false })} <span className="font-normal">$</span>
 								</span>
 							</div>
 						</div>
@@ -116,8 +101,7 @@ export function Dashboard() {
 									</div>
 								) : (
 									<span className="text-2xl font-semibold">
-										{readAmount(totalLiquidity, { decimals: 6, comma: true, fixed: 3 })}{' '}
-										<span className="font-normal">$</span>
+										{readAmount(totalLiquidity)} <span className="font-normal">$</span>
 									</span>
 								)}
 							</div>
@@ -154,26 +138,24 @@ export function Dashboard() {
 							</div>
 						</div>
 
-						{/* Volume */}
-						<div className="bg-offWhite flex h-44 flex-1 flex-col justify-start gap-2 rounded-lg p-7 shadow-sm">
-							<span className="text-darkBlue50">Volume (24h)</span>
-							<div className="flex items-center gap-2">
-								<span className="text-2xl font-semibold">
-									0.048678 <span className="font-normal">UST</span>
-								</span>
-								<span className="border-red bg-red25 text-darkRed inline-flex h-8 items-center rounded-lg border px-2 font-semibold">
-									-0.20%
-								</span>
-								<span className="text-mediumGrey text-lg font-semibold">24h</span>
-							</div>
-						</div>
-
 						{/* Pool APR */}
 						<div className="bg-offWhite flex h-44 flex-1 flex-col justify-start gap-2 rounded-lg p-7 shadow-sm">
-							<span className="text-darkBlue50">Pool APR</span>
+							<div className="flex items-center gap-2">
+								<span className="text-darkBlue50">Pool APR</span>
+								<Tooltip
+									trigger={
+										<div>
+											<Icon name="info-min" />
+										</div>
+									}
+								>
+									Retrieved for the Orne/Luna pool.
+								</Tooltip>
+							</div>
+
 							<div className="flex items-center gap-2">
 								<span className="text-2xl font-semibold">
-									1.0 <span className="font-normal">%</span>
+									{readPercent(APR)} <span className="font-normal">%</span>
 								</span>
 							</div>
 							{/*<div className="flex items-center justify-between">*/}
