@@ -4,5 +4,6 @@ export const queryKeys = {
 	balanceLuna: (walletAddress: string) => [...queryKeys.balanceRoot, 'luna', walletAddress] as const,
 	balanceLP: (walletAddress: string) => [...queryKeys.balanceRoot, 'lp', walletAddress] as const,
 	poolRoot: ['pools'] as const,
-	poolInfo: (address: string) => [...queryKeys.poolRoot, 'info', address] as const,
+	poolInfo: (poolAddress: string) => [...queryKeys.poolRoot, 'info', poolAddress] as const,
+	poolShare: (poolAddress: string, amount: any) => [...queryKeys.poolRoot, 'share', poolAddress, amount] as const,
 };

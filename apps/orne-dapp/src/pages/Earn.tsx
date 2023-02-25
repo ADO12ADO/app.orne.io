@@ -25,10 +25,19 @@ export function Earn() {
 			{status === WalletStatus.WALLET_CONNECTED && (
 				<>
 					<div className="mb-20 flex w-full justify-end gap-3 p-5">
-						<Button className="w-full lg:w-1/5" onClick={() => setOpenForm('provide')}>
+						<Button
+							className="w-full lg:w-1/5"
+							variant={openForm === 'provide' ? 'fill' : 'outline'}
+							onClick={() => setOpenForm('provide')}
+						>
 							Provide
 						</Button>
-						<Button variant="outline" className="w-full lg:w-1/5" onClick={() => setOpenForm('withdraw')}>
+
+						<Button
+							className="w-full lg:w-1/5"
+							variant={openForm === 'withdraw' ? 'fill' : 'outline'}
+							onClick={() => setOpenForm('withdraw')}
+						>
 							Withdraw
 						</Button>
 					</div>

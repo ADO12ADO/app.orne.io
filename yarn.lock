@@ -746,6 +746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lukeed/ms@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@lukeed/ms@npm:2.0.1"
+  checksum: c7b46933bf7bad3e024dcbbe2ad6201392b4ed2a05a717c0ef7e96a03fb885d44f08b4b749c392cc51c2736a6a45a08c77f1863ace1c072928fbfd9908a13db3
+  languageName: node
+  linkType: hard
+
 "@motionone/animation@npm:^10.15.1":
   version: 10.15.1
   resolution: "@motionone/animation@npm:10.15.1"
@@ -858,9 +865,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@orne/common@workspace:packages/common":
+  version: 0.0.0-use.local
+  resolution: "@orne/common@workspace:packages/common"
+  dependencies:
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "@orne/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@orne/types@workspace:packages/types"
+  dependencies:
+    "@types/big.js": ^6.1.6
+    big.js: ^6.2.1
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 
@@ -868,6 +887,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@orne/utils@workspace:packages/utils"
   dependencies:
+    "@lukeed/ms": ^2.0.1
+    "@types/big.js": ^6.1.6
+    big.js: ^6.2.1
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -1381,10 +1403,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/match-sorter-utils@npm:^8.7.0":
+  version: 8.7.6
+  resolution: "@tanstack/match-sorter-utils@npm:8.7.6"
+  dependencies:
+    remove-accents: 0.4.2
+  checksum: 3f3dda277e6e55ca1224a28b38a2deb3ac912c2f2f5263a32fa0d9126c6b6d05feb475539729fd248f1eb88b612109db90b847ec8fdfc05d0f4073c900a2d3f6
+  languageName: node
+  linkType: hard
+
 "@tanstack/query-core@npm:4.24.10":
   version: 4.24.10
   resolution: "@tanstack/query-core@npm:4.24.10"
   checksum: 8268b9dca4a2ed39f8575976d8a3e2f839bb6f4fb821dc00ba8e2aeffffe2f73e23344bcc24b9cb6dae9dbfe3ba2b14c76a1e0a38b4064c83beb9aa607fd94bc
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^4.24.10":
+  version: 4.24.10
+  resolution: "@tanstack/react-query-devtools@npm:4.24.10"
+  dependencies:
+    "@tanstack/match-sorter-utils": ^8.7.0
+    superjson: ^1.10.0
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    "@tanstack/react-query": 4.24.10
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: bcf20db355a9a253c23fda9c5d6f2173dd8179ae113723dbcb6febf18154e1d2bc2e0cefaecad34be0e732f94c4ff7f6f1485546278a39bce19802e04dd93dbb
   languageName: node
   linkType: hard
 
@@ -1557,6 +1603,13 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/big.js@npm:^6.1.6":
+  version: 6.1.6
+  resolution: "@types/big.js@npm:6.1.6"
+  checksum: 290936fc4e9ebd9883ead8e8278126f43783b3e57bf7736b12ce6d922c62515a83b8c62cd3ef557a043508109d403cb0bd89c7556b221c2c1057fd3a1d03e683
   languageName: node
   linkType: hard
 
@@ -2286,6 +2339,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"big.js@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "big.js@npm:6.2.1"
+  checksum: 0b234a2fd56c52bed2798ed2020bcab6fef5e9523b99a05406ad071d1aed6ee97ada9fb8de9576092da74c68825c276e19015743b8d1baea269b60a5c666b0cd
+  languageName: node
+  linkType: hard
+
 "binary-extensions@npm:^2.0.0":
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
@@ -2667,6 +2727,15 @@ __metadata:
   version: 1.9.0
   resolution: "convert-source-map@npm:1.9.0"
   checksum: dc55a1f28ddd0e9485ef13565f8f756b342f9a46c4ae18b843fe3c30c675d058d6a4823eff86d472f187b176f0adf51ea7b69ea38be34be4a63cbbf91b0593c8
+  languageName: node
+  linkType: hard
+
+"copy-anything@npm:^3.0.2":
+  version: 3.0.3
+  resolution: "copy-anything@npm:3.0.3"
+  dependencies:
+    is-what: ^4.1.8
+  checksum: d456dc5ec98dee7c7cf87d809eac30dc2ac942acd4cf970fab394e280ceb6dd7a8a7a5a44fcbcc50e0206658de3cc20b92863562f5797930bb2619f164f4c182
   languageName: node
   linkType: hard
 
@@ -4205,6 +4274,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-what@npm:^4.1.8":
+  version: 4.1.8
+  resolution: "is-what@npm:4.1.8"
+  checksum: b9bec3acff102d14ad467f4c74c9886af310fa160e07a63292c8c181e6768c7c4c1054644e13d67185b963644e4a513bce8c6b8ce3d3ca6f9488a69fccad5f97
+  languageName: node
+  linkType: hard
+
 "isexe@npm:^2.0.0":
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
@@ -4870,9 +4946,11 @@ __metadata:
     "@stitches/react": ^1.2.8
     "@tanstack/eslint-plugin-query": ^4.24.8
     "@tanstack/react-query": ^4.24.10
+    "@tanstack/react-query-devtools": ^4.24.10
     "@terra-money/feather.js": ^1.0.0-beta.11
     "@terra-money/terra.js": ^3.1.7
     "@terra-money/wallet-provider": ^4.0.0-beta.3
+    "@types/big.js": ^6.1.6
     "@types/node": ^18.14.0
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
@@ -4880,6 +4958,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.53.0
     "@vitejs/plugin-react": ^3.1.0
     autoprefixer: ^10.4.13
+    big.js: ^6.2.1
     buffer: ^6.0.3
     clsx: ^1.2.1
     csstype: ^3.1.1
@@ -4903,6 +4982,7 @@ __metadata:
     vite: ^4.1.4
     vite-compatible-readable-stream: ^3.6.1
     zod: ^3.20.6
+    zustand: ^4.3.3
   languageName: unknown
   linkType: soft
 
@@ -5506,6 +5586,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remove-accents@npm:0.4.2":
+  version: 0.4.2
+  resolution: "remove-accents@npm:0.4.2"
+  checksum: 84a6988555dea24115e2d1954db99509588d43fe55a1590f0b5894802776f7b488b3151c37ceb9e4f4b646f26b80b7325dcea2fae58bc3865df146e1fa606711
+  languageName: node
+  linkType: hard
+
 "require-directory@npm:^2.1.1":
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
@@ -5956,6 +6043,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"superjson@npm:^1.10.0":
+  version: 1.12.2
+  resolution: "superjson@npm:1.12.2"
+  dependencies:
+    copy-anything: ^3.0.2
+  checksum: cf7735e172811ed87476a7c2f1bb0e83725a0e3c2d7a50a71303a973060b3c710288767fb767a7a7eee8e5625d3ccaee1176a93e27f43841627512c15c4cdf84
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^5.3.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
@@ -6282,7 +6378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.2.0":
+"use-sync-external-store@npm:1.2.0, use-sync-external-store@npm:^1.2.0":
   version: 1.2.0
   resolution: "use-sync-external-store@npm:1.2.0"
   peerDependencies:
@@ -6550,5 +6646,22 @@ __metadata:
   version: 3.20.6
   resolution: "zod@npm:3.20.6"
   checksum: 804b1934b8b5e2fa3750bec90043e8118b201f330b9957b8b768389a971acadf812d2060cf62921086512dab4af691d10490acb03333da58fc485c0791893c89
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "zustand@npm:4.3.3"
+  dependencies:
+    use-sync-external-store: 1.2.0
+  peerDependencies:
+    immer: ">=9.0"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: fe0277ab0ce14849dea254cbdcfe83d4614364d38e616875f75ef2419f29085f5b03605efabeb33189a4557e647efaa294e0984c4f642e0566f445a7b207cdd6
   languageName: node
   linkType: hard

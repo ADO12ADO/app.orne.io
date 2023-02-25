@@ -1,15 +1,21 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Coin, Dec, MsgExecuteContract } from '@terra-money/feather.js';
 import { ContractAddress } from '~/context/OrneProvider';
+import { queryKeys } from '~/hooks/queryKeys';
 import { useApp } from '~/hooks/useApp';
 import { useConnectedWallet } from '~/hooks/useConnectedWallet';
+import { useTerraNetwork } from '~/hooks/useTerraNetwork';
+import { useTransactionResolver } from '~/stores/transactionResolver';
 
 export function useProvideLiquidity() {
 	const app = useApp();
+	const network = useTerraNetwork();
 	const connectedWallet = useConnectedWallet();
+	const queryClient = useQueryClient();
+	const push = useTransactionResolver((state) => state.push);
 
-	if (!connectedWallet) {
-		throw new Error('No connected wallet found');
+	if (!connectedWallet || !network) {
+		throw new Error('useProvideLiquidity must be used within a connected wallet and network context');
 	}
 
 	return useMutation({
@@ -20,15 +26,21 @@ export function useProvideLiquidity() {
 				terraAddress: connectedWallet.terraAddress,
 			});
 
-			const transaction = await connectedWallet.post({
-				chainID: 'pisco-1',
+			const tx = await connectedWallet.post({
+				chainID: network.chainID,
 				feeDenoms: ['uluna'],
 				gasAdjustment: 1.6,
 				gasPrices: { uluna: '0.015' },
 				msgs: [increaseAllowanceMsg, provideLiquidityMsg],
 			});
 
-			console.log(transaction);
+			push({
+				txResult: tx,
+				callback() {
+					void queryClient.invalidateQueries(queryKeys.poolRoot);
+					void queryClient.invalidateQueries(queryKeys.balanceRoot);
+				},
+			});
 		},
 	});
 }

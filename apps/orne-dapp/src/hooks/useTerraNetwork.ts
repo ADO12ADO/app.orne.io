@@ -1,4 +1,5 @@
 import { useConnectedWallet } from '@terra-money/wallet-provider';
+import type { LCDClientConfig } from '@terra-money/feather.js';
 
 export function useTerraNetwork() {
 	const connectedWallet = useConnectedWallet();
@@ -11,5 +12,5 @@ export function useTerraNetwork() {
 		['phoenix-1', 'pisco-1'].includes(chainId)
 	);
 
-	return { chainID, networkInfo };
+	return { chainID, networkInfo } as { chainID: string; networkInfo: LCDClientConfig };
 }

@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { WalletProvider } from '@terra-money/wallet-provider';
 import { BrowserRouter } from 'react-router-dom';
 import { OrneProvider } from '~/context/OrneProvider';
@@ -19,6 +20,8 @@ export function AppProviders({ children, defaultNetwork, walletConnectChainIds }
 					<OrneProvider>{children}</OrneProvider>
 				</WalletProvider>
 			</BrowserRouter>
+
+			<ReactQueryDevtools initialIsOpen={false} />
 		</QueryClientProvider>
 	);
 }

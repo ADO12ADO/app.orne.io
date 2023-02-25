@@ -1,3 +1,4 @@
+import { fiveMinute } from '@orne/utils/src/time';
 import { useQuery } from '@tanstack/react-query';
 import { Dec } from '@terra-money/feather.js';
 import { useLCDClient } from '@terra-money/wallet-provider';
@@ -24,5 +25,6 @@ export function useOrnePoolInfo() {
 				};
 			});
 		},
+		staleTime: fiveMinute,
 	});
 }

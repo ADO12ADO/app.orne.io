@@ -1,7 +1,10 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Coin, Dec, MsgExecuteContract } from '@terra-money/feather.js';
+import { queryKeys } from '~/hooks/queryKeys';
 import { useApp } from '~/hooks/useApp';
 import { useConnectedWallet } from '~/hooks/useConnectedWallet';
+import { useTerraNetwork } from '~/hooks/useTerraNetwork';
+import { useTransactionResolver } from '~/stores/transactionResolver';
 
 export type SwapParams = { slippage: string; beliefPrice: string } & (SwapLunaParams | SwapOrneParams);
 type SwapLunaParams = { amountLuna: string };
@@ -9,10 +12,13 @@ type SwapOrneParams = { amountOrne: string };
 
 export function useSwap() {
 	const app = useApp();
+	const network = useTerraNetwork();
+	const queryClient = useQueryClient();
 	const connectedWallet = useConnectedWallet();
+	const push = useTransactionResolver((state) => state.push);
 
-	if (!connectedWallet) {
-		throw new Error("Can't swap without connected wallet");
+	if (!connectedWallet || !network) {
+		throw new Error('useSwap must be used within a connected wallet and network context');
 	}
 
 	return useMutation({
@@ -26,12 +32,19 @@ export function useSwap() {
 							params
 					  );
 
-			await connectedWallet!.post({
-				chainID: 'pisco-1',
+			const tx = await connectedWallet!.post({
+				chainID: network.chainID,
 				feeDenoms: ['uluna'],
 				gasAdjustment: 1.6,
 				gasPrices: { uluna: '0.015' },
 				msgs: [msg],
+			});
+
+			push({
+				txResult: tx,
+				callback() {
+					void queryClient.invalidateQueries(queryKeys.balanceRoot);
+				},
 			});
 		},
 	});

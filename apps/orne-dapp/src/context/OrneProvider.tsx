@@ -3,7 +3,7 @@ import { createContext, useMemo } from 'react';
 import { Triangle } from 'react-loader-spinner';
 import type { ReactNode } from 'react';
 
-type Contracts = 'token' | 'orneLunaPair' | 'lunaUsdcPair' | 'lp' | 'company';
+type Contracts = 'token' | 'orneLunaPair' | 'lunaUsdcPair' | 'lp' | 'company' | 'astroGenerator';
 export type ContractAddress = Record<Contracts, string>;
 
 const kTestnetContract: ContractAddress = {
@@ -12,6 +12,7 @@ const kTestnetContract: ContractAddress = {
 	lunaUsdcPair: 'terra16u6xa76krku3ykxck44x39s62za7qhsh8gr7sk9jwgt8nndwwjnq7c2zr4',
 	lp: 'terra1wn5s82w49mnljhs252xtxc3zprxjtz6u0v95pdcjgfac2c87k0gs8semsz',
 	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
+	astroGenerator: 'terra1gc4d4v82vjgkz0ag28lrmlxx3tf6sq69tmaujjpe7jwmnqakkx0qm28j2l',
 };
 
 const kMainnetContract: ContractAddress = {
@@ -20,6 +21,7 @@ const kMainnetContract: ContractAddress = {
 	lunaUsdcPair: 'terra1fd68ah02gr2y8ze7tm9te7m70zlmc7vjyyhs6xlhsdmqqcjud4dql4wpxr',
 	lp: 'terra10ht5t5vzpt6lfh8r6lau6mtsha3rqeznhkw5whc65scgrtkqradq0zy9pa',
 	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
+	astroGenerator: 'terra1ksvlfex49desf4c452j6dewdjs6c48nafemetuwjyj6yexd7x3wqvwa7j9',
 };
 
 export type OrneContextData = {

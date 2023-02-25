@@ -1,3 +1,4 @@
+import { oneMinute } from '@orne/utils/src/time';
 import { useQuery } from '@tanstack/react-query';
 import { useLCDClient } from '@terra-money/wallet-provider';
 import { queryKeys } from '~/hooks/queryKeys';
@@ -23,5 +24,6 @@ export function useOrneBalance() {
 
 			return BalanceSchema.parse(response);
 		},
+		staleTime: oneMinute,
 	});
 }

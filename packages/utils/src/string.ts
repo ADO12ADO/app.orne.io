@@ -4,3 +4,7 @@ export function truncate(text: string = '', [h, t]: [number, number] = [7, 6]): 
 
 	return text.length > h + t ? [head, tail].join('...') : text;
 }
+
+export function transformToValidInput(input: string) {
+	return input.replace(/[^0-9.]/g, '');
+}

@@ -1,3 +1,4 @@
+import { string } from '@orne/utils';
 import { Dec } from '@terra-money/feather.js';
 import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
@@ -81,7 +82,10 @@ export function ProvideForm() {
 		if (!amountOrne || !amountLuna) return;
 
 		provide(
-			{ amountLuna: new Dec(amountLuna), amountOrne: new Dec(amountOrne) },
+			{
+				amountLuna: new Dec(string.transformToValidInput(amountLuna)),
+				amountOrne: new Dec(string.transformToValidInput(amountOrne)),
+			},
 			{
 				onSuccess() {
 					setAmountOrne('');
