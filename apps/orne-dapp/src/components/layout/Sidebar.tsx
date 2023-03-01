@@ -16,7 +16,7 @@ export function Sidebar() {
 		<>
 			<button
 				onClick={toggleSidebar}
-				className="fixed top-2 left-2 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-offWhite shadow-lg lg:hidden"
+				className="bg-offWhite fixed top-2 left-2 z-10 flex h-14 w-14 items-center justify-center rounded-full shadow-lg lg:hidden"
 			>
 				<Icon name="menu" className="w-6" />
 			</button>
@@ -26,7 +26,7 @@ export function Sidebar() {
 			>
 				<button
 					onClick={toggleSidebar}
-					className="fixed top-2 right-2 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-offWhite shadow-lg lg:hidden"
+					className="bg-offWhite fixed top-2 right-2 z-10 flex h-14 w-14 items-center justify-center rounded-full shadow-lg lg:hidden"
 				>
 					<Icon name="close" className="w-6" />
 				</button>
@@ -38,7 +38,7 @@ export function Sidebar() {
 						<li onClick={toggleSidebar}>
 							<Link
 								to={'/'}
-								className="flex items-center gap-2 text-2xl font-semibold transition-colors hover:text-darkBlue50 lg:text-base"
+								className="hover:text-darkBlue50 flex items-center gap-2 text-2xl font-semibold transition-colors lg:text-base"
 							>
 								<Icon name="dashboard" />
 								Dashboard
@@ -47,7 +47,7 @@ export function Sidebar() {
 						<li onClick={toggleSidebar}>
 							<Link
 								to={'/swap'}
-								className="flex items-center gap-2 text-2xl font-semibold transition-colors hover:text-darkBlue50 lg:text-base"
+								className="hover:text-darkBlue50 flex items-center gap-2 text-2xl font-semibold transition-colors lg:text-base"
 							>
 								<Icon name="swap" />
 								Swap
@@ -56,7 +56,7 @@ export function Sidebar() {
 						<li onClick={toggleSidebar}>
 							<Link
 								to={'/earn'}
-								className="flex items-center gap-2 text-2xl font-semibold transition-colors hover:text-darkBlue50 lg:text-base"
+								className="hover:text-darkBlue50 flex items-center gap-2 text-2xl font-semibold transition-colors lg:text-base"
 							>
 								<Icon name="earn" />
 								Earn
@@ -73,22 +73,22 @@ export function Sidebar() {
 				<div>
 					<ul className="flex gap-3">
 						<li>
-							<a href="#" target="_blank" rel="noreferrer nofollow">
+							<a href="https://t.me/orne_io" target="_blank" rel="noreferrer nofollow">
 								<Icon name="telegram" />
 							</a>
 						</li>
 						<li>
-							<a href="#" target="_blank" rel="noreferrer nofollow">
+							<a href="https://twitter.com/orne_i_o" target="_blank" rel="noreferrer nofollow">
 								<Icon name="twitter" />
 							</a>
 						</li>
 						<li>
-							<a href="#" target="_blank" rel="noreferrer nofollow">
+							<a href="https://github.com/orne-io" target="_blank" rel="noreferrer nofollow">
 								<Icon name="github" />
 							</a>
 						</li>
 						<li>
-							<a href="#" target="_blank" rel="noreferrer nofollow">
+							<a href="https://medium.com/@orne" target="_blank" rel="noreferrer nofollow">
 								<Icon name="medium" />
 							</a>
 						</li>
