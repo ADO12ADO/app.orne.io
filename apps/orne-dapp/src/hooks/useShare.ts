@@ -17,11 +17,14 @@ export function useShare(amountOfLP: string | number = 0) {
 	return useQuery({
 		queryKey: queryKeys.poolShare(app.contract.orneLunaPair, amountOfLP),
 		queryFn: async () => {
-			const [luna, orne] = await lcd.wasm.contractQuery(app.contract.orneLunaPair, {
+			const response = await lcd.wasm.contractQuery(app.contract.orneLunaPair, {
 				share: { amount: amountOfLP.toString() },
 			});
 
-			return { amountLuna: luna.amount, amountOrne: orne.amount };
+			const orneToken = response.find((token) => 'token' in token.info);
+			const lunaToken = response.find((token) => 'native_token' in token.info);
+
+			return { amountLuna: lunaToken.amount, amountOrne: orneToken.amount };
 		},
 		staleTime: oneMinute,
 	});
