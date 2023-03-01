@@ -154,7 +154,6 @@ export function ProvideForm() {
 									) : (
 										readAmount(lunaBalance?.balance)
 									)}
-									9
 								</span>
 							</div>
 							<div className="flex justify-between">
