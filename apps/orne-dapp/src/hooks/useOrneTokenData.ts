@@ -1,5 +1,5 @@
 import { Dec } from '@terra-money/feather.js';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCompanyBalance } from '~/hooks/useCompanyBalance';
 import { useLunaPoolInfo } from '~/hooks/useLunaPoolInfo';
 import { useOrnePoolInfo } from '~/hooks/useOrnePoolInfo';
@@ -15,10 +15,7 @@ export function useOrneTokenData() {
 	const [marketCap, setMarketCap] = useState<Dec | null>(null);
 	const [fullyDilutedValue, setFullyDilutedValue] = useState<Dec | null>(null);
 
-	const isLoading = useMemo(
-		() => ornePoolInfo.isLoading || lunaPoolInfo.isLoading || companyBalance.isLoading,
-		[ornePoolInfo, lunaPoolInfo, companyBalance]
-	);
+	const isLoading = ornePoolInfo.isLoading || lunaPoolInfo.isLoading || companyBalance.isLoading;
 
 	useEffect(() => {
 		if (!(ornePoolInfo.isSuccess && lunaPoolInfo.isSuccess && companyBalance.isSuccess)) {
