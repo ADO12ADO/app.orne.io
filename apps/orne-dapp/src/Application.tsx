@@ -9,6 +9,7 @@ import { Shell } from '~/components/layout/Shell';
 import { AppProviders } from '~/configuration/AppProviders';
 import { Dashboard } from '~/pages/Dashboard';
 import { Earn } from '~/pages/Earn';
+import { NFTVault } from '~/pages/NFTVault';
 import { Swap } from '~/pages/Swap';
 
 export function Application() {
@@ -39,6 +40,7 @@ export function Application() {
 					<Route path={'/'} element={<Dashboard />} />
 					<Route path={'/swap'} element={<Swap />} />
 					<Route path={'/earn'} element={<Earn />} />
+					<Route path={'/vault'} element={<NFTVault />} />
 				</Routes>
 			</Shell>
 		</AppProviders>

@@ -6,4 +6,6 @@ export const queryKeys = {
 	poolRoot: ['pools'] as const,
 	poolInfo: (poolAddress: string) => [...queryKeys.poolRoot, 'info', poolAddress] as const,
 	poolShare: (poolAddress: string, amount: any) => [...queryKeys.poolRoot, 'share', poolAddress, amount] as const,
+	presaleRoot: ['presale'] as const,
+	presaleTokens: (walletAddress: string) => [...queryKeys.presaleRoot, 'tokens', walletAddress] as const,
 };

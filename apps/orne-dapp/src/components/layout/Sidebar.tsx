@@ -62,12 +62,15 @@ export function Sidebar() {
 								Earn
 							</Link>
 						</li>
-						{/* <li onClick={toggleSidebar}>
-						<Link to={'/'} className="flex items-center gap-2 font-semibold transition-colors hover:text-darkBlue50 lg:text-base text-2xl">
-							<Icon name="tree" />
-							Trees
-						</Link>
-					</li> */}
+						<li onClick={toggleSidebar}>
+							<Link
+								to={'/vault'}
+								className="hover:text-darkBlue50 flex items-center gap-2 text-2xl font-semibold transition-colors lg:text-base"
+							>
+								<Icon name="tree" />
+								Trees
+							</Link>
+						</li>
 					</ul>
 				</div>
 				<div>
