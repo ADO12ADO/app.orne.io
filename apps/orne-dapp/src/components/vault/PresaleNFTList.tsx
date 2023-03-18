@@ -14,7 +14,7 @@ export function PresaleNFTList() {
 	}
 
 	return (
-		<div className="grid grid-cols-6 gap-8">
+		<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
 			{tokens?.map((token) => (
 				<div key={token.edition} className="bg-offWhite rounded-lg p-7 shadow-sm">
 					<div className="mb-6 flex items-center justify-center">
