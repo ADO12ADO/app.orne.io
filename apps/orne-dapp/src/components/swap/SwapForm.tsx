@@ -8,12 +8,16 @@ import { SlippageSelector } from '~/components/form/SlippageSelector';
 import { Button } from '~/components/ui/Button';
 import { IconToken } from '~/components/ui/IconToken';
 import { useEstimateFee } from '~/hooks/useEstimateFee';
+import { useLunaBalance } from '~/hooks/useLunaBalance';
+import { useOrneBalance } from '~/hooks/useOrneBalance';
 import { SwapParams, useSwap } from '~/hooks/useSwap';
 import { useSwapSimulation } from '~/hooks/useSwapSimulation';
 import { Token } from '~/utils/constants';
 import { readAmount } from '~/utils/readAmount';
 
 export function SwapForm() {
+	const { data: orneBalance, isLoading: isLoadingOrneBalance } = useOrneBalance();
+	const { data: lunaBalance, isLoading: isLoadingLunaBalance } = useLunaBalance();
 	const [amount, setAmount] = useState('');
 	const [debouncedAmount] = useDebounce(amount, 300);
 	const [slippage, setSlippage] = useState(0.5);
@@ -59,11 +63,22 @@ export function SwapForm() {
 		}
 	}
 
+	const swapTokenBalance = from === Token.Luna ? lunaBalance?.balance : orneBalance?.balance;
+
 	return (
 		<>
 			<div className="flex-1">
 				<div className="bg-offWhite flex h-32 flex-1 flex-col justify-center rounded-lg p-8 shadow-sm">
-					<span className="text-darkBlue50 mb-3">Balance</span>
+					<div className="flex w-full justify-between">
+						<span className="text-darkBlue50 mb-3">Balance</span>
+						<span className="text-darkBlue50 mb-3">
+							{isLoadingOrneBalance || isLoadingLunaBalance ? (
+								<ThreeDots color="hsl(203,23%,42%)" height="10" />
+							) : (
+								readAmount(swapTokenBalance)
+							)}
+						</span>
+					</div>
 					<div className="flex justify-between">
 						<AmountInput
 							className="bg-offWhite text-2xl font-semibold"
