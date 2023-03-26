@@ -2,6 +2,13 @@ import React from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { useOrnePresaleToken } from '~/hooks/useOrnePresaleToken';
 
+const rarityOrder = {
+	Common: 1,
+	Rare: 2,
+	Epic: 3,
+	Legendary: 4,
+};
+
 export function PresaleNFTList() {
 	const { data: tokens, isLoading } = useOrnePresaleToken();
 
@@ -13,9 +20,11 @@ export function PresaleNFTList() {
 		);
 	}
 
+	const sortedTokens = tokens?.sort((a, b) => rarityOrder[b.rarity] - rarityOrder[a.rarity]);
+
 	return (
 		<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-			{tokens?.map((token) => (
+			{sortedTokens?.map((token) => (
 				<div key={token.edition} className="bg-offWhite rounded-lg p-7 shadow-sm">
 					<div className="mb-6 flex items-center justify-center">
 						<img className="h-32" src={token.media} alt="" />
