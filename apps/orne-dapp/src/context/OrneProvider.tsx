@@ -11,7 +11,7 @@ const kTestnetContract: ContractAddress = {
 	orneLunaPair: 'terra170p3ndrfl08eugfds0f7ccpmn7txtfj3awd3se63qwyhuchzkuzqsms430',
 	lunaUsdcPair: 'terra16u6xa76krku3ykxck44x39s62za7qhsh8gr7sk9jwgt8nndwwjnq7c2zr4',
 	lp: 'terra1h47906nd2gzzszganvr5atgqm73q4rnu5ux80vejcfpu8c3lsursge97qq',
-	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
+	company: 'terra1qtcy5xwsenhkspt52xv60tzpfl0k3ympyrud9g7yve2aut0u5v3qhj76j8',
 	astroGenerator: 'terra1gc4d4v82vjgkz0ag28lrmlxx3tf6sq69tmaujjpe7jwmnqakkx0qm28j2l',
 	presale: 'terra17wzrjl43t7wen3fd67t5qg9nzxeqkdffa7wrgr3k4rnv6fz5cv4qyff6c2',
 };
@@ -21,7 +21,7 @@ const kMainnetContract: ContractAddress = {
 	orneLunaPair: 'terra170p3ndrfl08eugfds0f7ccpmn7txtfj3awd3se63qwyhuchzkuzqsms430',
 	lunaUsdcPair: 'terra1fd68ah02gr2y8ze7tm9te7m70zlmc7vjyyhs6xlhsdmqqcjud4dql4wpxr',
 	lp: 'terra1h47906nd2gzzszganvr5atgqm73q4rnu5ux80vejcfpu8c3lsursge97qq',
-	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
+	company: 'terra1qtcy5xwsenhkspt52xv60tzpfl0k3ympyrud9g7yve2aut0u5v3qhj76j8',
 	astroGenerator: 'terra1ksvlfex49desf4c452j6dewdjs6c48nafemetuwjyj6yexd7x3wqvwa7j9',
 	presale: 'terra17wzrjl43t7wen3fd67t5qg9nzxeqkdffa7wrgr3k4rnv6fz5cv4qyff6c2',
 };
