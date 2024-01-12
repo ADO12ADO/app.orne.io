@@ -22,8 +22,16 @@ export function Earn() {
           Stake your tokens to earn <span className="text-green">$ORNE</span>
         </h2>
       </div>
-      <PoolInfo />
       {status === WalletStatus.WALLET_CONNECTED && (
+        <>
+          {(openForm === 'provide' || openForm === 'withdraw') && (
+            <>
+              <PoolInfo /> {/* Render first version of PoolInfo */}
+              <PoolInfoV2 /> {/* Render second version of PoolInfo */}
+            </>
+          )}
+
+          <div className="mb-20 flex w-full justify-end gap-3 p-5">
             <>
 			      <div className="mb-20 flex w-full justify-end gap-3 p-5">
             <Button

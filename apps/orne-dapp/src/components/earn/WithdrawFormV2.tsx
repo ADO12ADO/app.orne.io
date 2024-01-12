@@ -13,7 +13,7 @@ import { readAmount } from '~/utils/readAmount';
 import { Button } from '../ui/Button';
 import { IconToken } from '../ui/IconToken';
 
-export function WithdrawFormV2() {
+const WithdrawFormV2 = () => {
 	const { data: lpBalance, isLoading } = useLPBalance();
 
 	const [amount, setAmount] = useState('');
@@ -108,4 +108,5 @@ export function WithdrawFormV2() {
 			</Button>
 		</>
 	);
-}
+};
+export default WithdrawFormV2;
