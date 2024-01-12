@@ -24,7 +24,7 @@ export function Earn() {
       </div>
       <PoolInfo />
       {status === WalletStatus.WALLET_CONNECTED && (
-            
+            <>
 			      <div className="mb-20 flex w-full justify-end gap-3 p-5">
             <Button
               className="w-full lg:w-1/5"
