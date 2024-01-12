@@ -1,5 +1,5 @@
 import { ConnectType, useWallet } from '@terra-money/wallet-provider';
-import  Button  from '~/components/ui/Button';
+import { Button } from '~/components/ui/Button';
 import { Popover } from '~/components/ui/Popover';
 
 export function ConnectWalletButton() {
