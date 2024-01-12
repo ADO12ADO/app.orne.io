@@ -22,13 +22,13 @@ export function Earn() {
           Stake your tokens to earn <span className="text-green">$ORNE</span>
         </h2>
       </div>
-
+      <PoolInfo />
       {status === WalletStatus.WALLET_CONNECTED && (
         <>
           {(openForm === 'provide' || openForm === 'withdraw') && (
             <>
-              <PoolInfo /> {/* Render first version of PoolInfo */}
-              <PoolInfoV2 /> {/* Render second version of PoolInfo */}
+              <ProvideForm /> {/* Render first version of ProvideForm */}
+              <ProvideFormV2 /> {/* Render second version of ProvideFormV2 */}
             </>
           )}
 
