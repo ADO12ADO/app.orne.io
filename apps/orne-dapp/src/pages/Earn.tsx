@@ -1,6 +1,6 @@
 import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
 import { useState } from 'react';
-import PoolInfo from '~/components/earn/PoolInfo';// Import your first version of PoolInfo
+import PoolInfo from '~/components/earn/PoolInfo'; // Import your first version of PoolInfo
 import PoolInfoV2 from '~/components/earn/PoolInfoV2'; // Import your second version of PoolInfo
 import Button from '~/components/ui/Button'; // Import your Button component
 import ProvideForm from '~/components/earn/ProvideForm'; // Import your first version of ProvideForm
@@ -25,9 +25,12 @@ export function Earn() {
 
       {status === WalletStatus.WALLET_CONNECTED && (
         <>
-          <PoolInfo /> {/* Replace with the appropriate version based on your condition */}
-          {/* or */}
-          <PoolInfoV2 /> {/* Replace with the appropriate version based on your condition */}
+          {(openForm === 'provide' || openForm === 'withdraw') && (
+            <>
+              <PoolInfo /> {/* Render first version of PoolInfo */}
+              <PoolInfoV2 /> {/* Render second version of PoolInfo */}
+            </>
+          )}
 
           <div className="mb-20 flex w-full justify-end gap-3 p-5">
             <Button
@@ -49,16 +52,14 @@ export function Earn() {
 
           {openForm === 'provide' && (
             <>
-              <ProvideForm /> {/* Replace with the appropriate version based on your condition */}
-              {/* or */}
-              <ProvideFormV2 /> {/* Replace with the appropriate version based on your condition */}
+              <ProvideForm /> {/* Render first version of ProvideForm */}
+              <ProvideFormV2 /> {/* Render second version of ProvideForm */}
             </>
           )}
           {openForm === 'withdraw' && (
             <>
-              <WithdrawForm /> {/* Replace with the appropriate version based on your condition */}
-              {/* or */}
-              <WithdrawFormV2 /> {/* Replace with the appropriate version based on your condition */}
+              <WithdrawForm /> {/* Render first version of WithdrawForm */}
+              <WithdrawFormV2 /> {/* Render second version of WithdrawForm */}
             </>
           )}
         </>
