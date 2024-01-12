@@ -7,7 +7,7 @@ import { Token } from '~/utils/constants';
 import { readAmount } from '~/utils/readAmount';
 import { readPercent } from '~/utils/readPercent';
 
-export function PoolInfo() {
+const PoolInfo() {
 	const { status } = useWallet();
 	const { totalLiquidity, APR, isLoading } = useOrneTokenData();
 
@@ -52,4 +52,5 @@ export function PoolInfo() {
 			{/*</div>*/}
 		</div>
 	);
-}
+};
+export default PoolInfo;
