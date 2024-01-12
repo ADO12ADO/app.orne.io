@@ -17,10 +17,10 @@ const kTestnetContract: ContractAddress = {
 };
 
 const kMainnetContract: ContractAddress = {
-	token: 'terra19p20mfnvwh9yvyr7aus3a6z6g6uk28fv4jhx9kmnc2m7krg27q2qkfenjw',
-	orneLunaPair: 'terra1h4cakgms4ju3eryhrmw00xegtjxkgyv88yqllg9ryz9qxek4qz9sz3swn2',
+	token: 'terra1w8xk6rtu40st6lvl3yv7ynw5urm2n686u9cchvrzltmnktzwdesqcwy0nu',
+	orneLunaPair: 'terra170p3ndrfl08eugfds0f7ccpmn7txtfj3awd3se63qwyhuchzkuzqsms430',
 	lunaUsdcPair: 'terra1fd68ah02gr2y8ze7tm9te7m70zlmc7vjyyhs6xlhsdmqqcjud4dql4wpxr',
-	lp: 'terra10ht5t5vzpt6lfh8r6lau6mtsha3rqeznhkw5whc65scgrtkqradq0zy9pa',
+	lp: 'terra1h47906nd2gzzszganvr5atgqm73q4rnu5ux80vejcfpu8c3lsursge97qq',
 	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
 	astroGenerator: 'terra1ksvlfex49desf4c452j6dewdjs6c48nafemetuwjyj6yexd7x3wqvwa7j9',
 	presale: 'terra17wzrjl43t7wen3fd67t5qg9nzxeqkdffa7wrgr3k4rnv6fz5cv4qyff6c2',
@@ -54,7 +54,7 @@ export function OrneProvider({ children }: { children: ReactNode }) {
 				}}
 			>
 				<Triangle ariaLabel="Loading the dApp" color="hsl(203,23%,42%)" />
-				<h1>Orne.io</h1>
+				<h1>ADO</h1>
 			</div>
 		);
 	}
