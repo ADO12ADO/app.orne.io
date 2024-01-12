@@ -7,10 +7,10 @@ type Contracts = 'token' | 'orneLunaPair' | 'lunaUsdcPair' | 'lp' | 'company' | 
 export type ContractAddress = Record<Contracts, string>;
 
 const kTestnetContract: ContractAddress = {
-	token: 'terra17lpau4t55q48g0utuh4cf0mderjkvddv0pdu3lazm6znnp95fq4susnck5',
-	orneLunaPair: 'terra1tlscdjfm2rgjf5e8z4rfkspcnu5z4l4g6fh4x5lhmvf62gtxcqjqm5e8f6',
+	token: 'terra1w8xk6rtu40st6lvl3yv7ynw5urm2n686u9cchvrzltmnktzwdesqcwy0nu',
+	orneLunaPair: 'terra170p3ndrfl08eugfds0f7ccpmn7txtfj3awd3se63qwyhuchzkuzqsms430',
 	lunaUsdcPair: 'terra16u6xa76krku3ykxck44x39s62za7qhsh8gr7sk9jwgt8nndwwjnq7c2zr4',
-	lp: 'terra1wn5s82w49mnljhs252xtxc3zprxjtz6u0v95pdcjgfac2c87k0gs8semsz',
+	lp: 'terra1h47906nd2gzzszganvr5atgqm73q4rnu5ux80vejcfpu8c3lsursge97qq',
 	company: 'terra102d7hvknwqegydy03kfpapj3zn3m7hschy90qy',
 	astroGenerator: 'terra1gc4d4v82vjgkz0ag28lrmlxx3tf6sq69tmaujjpe7jwmnqakkx0qm28j2l',
 	presale: 'terra17wzrjl43t7wen3fd67t5qg9nzxeqkdffa7wrgr3k4rnv6fz5cv4qyff6c2',
