@@ -40,7 +40,7 @@ export function useOrneTokenData() {
 		setOrnePriceInUSD(ornePriceInUSD);
 		setTotalLiquidity(liquidity);
 		setFullyDilutedValue(fdv);
-		setMarketCap(fdv.minus(balanceValue));
+		setMarketCap(fdv.plus(balanceValue));
 	}, [ornePoolInfo.data, lunaPoolInfo.data]);
 
 	return { APR, ornePriceInUSD, totalLiquidity, marketCap, fullyDilutedValue, isLoading };
