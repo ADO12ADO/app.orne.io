@@ -3,7 +3,7 @@ import { useWallet } from '@terra-money/wallet-provider';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
-import { Button } from '~/components/ui/Button';
+import  Button  from '~/components/ui/Button';
 import { Icon } from '~/components/ui/Icon';
 import { IconToken } from '~/components/ui/IconToken';
 import { Popover } from '~/components/ui/Popover';
