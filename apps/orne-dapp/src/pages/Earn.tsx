@@ -1,12 +1,12 @@
 import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
 import { useState } from 'react';
-import PoolInfo from './PoolInfo'; // Import your first version of PoolInfo
-import PoolInfoV2 from './PoolInfoV2'; // Import your second version of PoolInfo
-import Button from './Button'; // Import your Button component
-import ProvideForm from './ProvideForm'; // Import your first version of ProvideForm
-import ProvideFormV2 from './ProvideFormV2'; // Import your second version of ProvideForm
-import WithdrawForm from './WithdrawForm'; // Import your first version of WithdrawForm
-import WithdrawFormV2 from './WithdrawFormV2'; // Import your second version of WithdrawForm
+import PoolInfo from '~/components/earn/PoolInfo';// Import your first version of PoolInfo
+import PoolInfoV2 from '~/components/earn/PoolInfoV2'; // Import your second version of PoolInfo
+import Button from '~/components/ui/Button'; // Import your Button component
+import ProvideForm from '~/components/earn/ProvideForm'; // Import your first version of ProvideForm
+import ProvideFormV2 from '~/components/earn/ProvideFormV2'; // Import your second version of ProvideForm
+import WithdrawForm from '~/components/earn/WithdrawForm'; // Import your first version of WithdrawForm
+import WithdrawFormV2 from '~/components/earn/WithdrawFormV2'; // Import your second version of WithdrawForm
 
 export function Earn() {
   const { status } = useWallet();
