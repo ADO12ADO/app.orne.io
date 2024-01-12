@@ -80,7 +80,7 @@ export function Dashboard() {
 									<span className="text-darkBlue50">Market Cap</span>
 									<div className="flex items-center gap-2">
 										<span className="text-2xl font-semibold">
-											{readAmount((marketCap + 1)?.toFixed(2), { micro: false })} <span className="font-normal">$</span>
+											{readAmount(marketCap?.toFixed(2), { micro: false })} <span className="font-normal">$</span>
 										</span>
 									</div>
 								</div>
@@ -90,7 +90,7 @@ export function Dashboard() {
 									<span className="text-darkBlue50">Fully Diluted Valuation</span>
 									<div className="flex items-center gap-2">
 										<span className="text-2xl font-semibold">
-											{readAmount((fullyDilutedValue + 1)?.toFixed(2), { micro: false })}{' '}
+											{readAmount(fullyDilutedValue?.toFixed(2), { micro: false })}{' '}
 											<span className="font-normal">$</span>
 										</span>
 									</div>
@@ -218,4 +218,4 @@ export function Dashboard() {
 			)}
 		</div>
 	);
-}
+					}
