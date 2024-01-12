@@ -14,7 +14,7 @@ import { readAmount } from '~/utils/readAmount';
 import { Button } from '../ui/Button';
 import { IconToken } from '../ui/IconToken';
 
-export function ProvideForm() {
+const ProvideFormV2 = () => {
 	const { data: orneBalance, isLoading: isLoadingOrneBalance } = useOrneBalance();
 	const { data: lunaBalance, isLoading: isLoadingLunaBalance } = useLunaBalance();
 
@@ -184,4 +184,5 @@ export function ProvideForm() {
 			</form>
 		</>
 	);
-}
+};
+export default ProvideFormV2;
